@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get IP Address</title>
+</head>
+<body>
+    <button onclick="getIP()">Get IP Address</button>
+    <p id="ip"></p>
+
+    <script>
+        async function getIP() {
+            try {
+                const response = await fetch('https://api.ipify.org?format=json');
+                const data = await response.json();
+                document.getElementById('ip').innerText = `Your IP Address: ${data.ip}`;
+            } catch (error) {
+                console.error('Error fetching IP address:', error);
+            }
+        }
+    </script>
+</body>
+</html>
